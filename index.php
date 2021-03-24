@@ -1,5 +1,7 @@
 <?php
 
+    header('Access-Control-Allow-Origin: *');
+
     $uri = $_SERVER['REQUEST_URI'];
     $uri = trim($uri, '/');
     
