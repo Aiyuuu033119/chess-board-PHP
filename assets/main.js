@@ -1,16 +1,20 @@
 $(document).ready(function () {
-        
+    $('.loader-container').html('<div class="loader11"></div>');
     function async() {
         $.ajax({
             url: "https://chess-board-ian.herokuapp.com/",
             type: "GET",
             contentType: false,
             processData: false,
+            beforeSend: function(){
+                $('.modal-loading').show();
+            },
             success: function (data) {
+                $('.modal-loading').hide();
 
                 var json = JSON.parse(data);
 
-                var html = '';
+                var html = '<div class="game-board">';
 
                 for (let row = 0; row < json.row; row++) {
 
@@ -80,8 +84,10 @@ $(document).ready(function () {
                     }
                     html+= '</div>';
                 }
+                
+                html+='</div>';
 
-                $('.game-board').html(html);
+                $('.container').html(html);
                 
             }
         });

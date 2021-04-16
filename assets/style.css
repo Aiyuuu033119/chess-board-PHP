@@ -16,7 +16,7 @@
 
 .game-board{
     width: 600px;
-    height: 600px;
+    height: 610px;
     display: flex;
     flex-direction: column;
     padding: 5px;
